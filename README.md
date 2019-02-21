@@ -1,0 +1,1 @@
+# Microsoft App Insights Doctrine dependency logger
