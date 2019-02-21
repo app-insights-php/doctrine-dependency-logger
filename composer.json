@@ -13,6 +13,7 @@
         }
     },
     "require": {
+        "php": "^7.1",
         "doctrine/dbal": "^2.3",
         "app-insights-php/client": "dev-master"
     },
