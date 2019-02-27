@@ -9,12 +9,19 @@ use Doctrine\DBAL\Logging\SQLLogger;
 
 final class DependencyLogger implements SQLLogger
 {
+    public const DEFAULT_NAME = 'Doctrine DBAL';
+    public const DEFAULT_TYPE = 'SQL';
+
     private $telemetryClient;
     private $sqlQuery;
+    private $dependencyName;
+    private $dependencyType;
 
-    public function __construct(Client $telemetryClient)
+    public function __construct(Client $telemetryClient, string $dependencyName = self::DEFAULT_NAME, string $dependencyType = self::DEFAULT_TYPE)
     {
         $this->telemetryClient = $telemetryClient;
+        $this->dependencyName = $dependencyName;
+        $this->dependencyType = $dependencyType;
     }
 
     /**
@@ -35,8 +42,8 @@ final class DependencyLogger implements SQLLogger
     public function stopQuery()
     {
         $this->telemetryClient->trackDependency(
-            'Doctrine DBAL',
-            'SQL',
+            $this->dependencyName,
+            $this->dependencyType,
             $this->sqlQuery['sql'],
             $this->sqlQuery['startTime'],
             (int) round(microtime(true) * 1000, 1) - $this->sqlQuery['startTimeMs'],
