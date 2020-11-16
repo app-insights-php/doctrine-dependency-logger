@@ -14,7 +14,7 @@
     },
     "require": {
         "php": "^7.1",
-        "doctrine/dbal": "^2.3",
+        "doctrine/dbal": "^3.0",
         "app-insights-php/client": "^0.2"
     },
     "require-dev": {
