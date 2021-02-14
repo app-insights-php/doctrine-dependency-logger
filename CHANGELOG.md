@@ -1,6 +1,10 @@
-## [Unreleased] - 2020-04-03
+## [Unreleased] - 2021-02-14
+
+### Added
+- [dfb893](https://github.com/app-insights-php/doctrine-dependency-logger/commit/dfb893b64bd1d173937d73a4ab97f9631fe4b133) - **changelog** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [0419aa](https://github.com/app-insights-php/doctrine-dependency-logger/commit/0419aaa2b4e790fd54bcb72f5c2843e460ba0691) - **Upgraded dependencies, added aeon-php/autmoation integration** - [@norberttech](https://github.com/norberttech)
 - [#4](https://github.com/app-insights-php/doctrine-dependency-logger/pull/4) - **Update phpunit/phpunit requirement from ^8.1 to ^9.1** - [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
 
 ## [0.2.0] - 2019-07-02
