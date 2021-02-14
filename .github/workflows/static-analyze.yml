@@ -35,6 +35,11 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           ini-values: memory_limit=-1
 
+      - name: "Get Composer Cache Directory"
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
       - name: "Cache Composer dependencies"
         uses: "actions/cache@v2"
         with:
