@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
 
 namespace AppInsightsPHP\Doctrine\DBAL\Logging;
 
@@ -10,11 +10,15 @@ use Doctrine\DBAL\Logging\SQLLogger;
 final class DependencyLogger implements SQLLogger
 {
     public const DEFAULT_NAME = 'Doctrine DBAL';
+
     public const DEFAULT_TYPE = 'SQL';
 
     private $telemetryClient;
+
     private $sqlQuery;
+
     private $dependencyName;
+
     private $dependencyType;
 
     public function __construct(Client $telemetryClient, string $dependencyName = self::DEFAULT_NAME, string $dependencyType = self::DEFAULT_TYPE)
@@ -27,30 +31,30 @@ final class DependencyLogger implements SQLLogger
     /**
      * {@inheritdoc}
      */
-    public function startQuery($sql, array $params = null, array $types = null)
+    public function startQuery($sql, array $params = null, array $types = null) : void
     {
         $this->sqlQuery = [
             'sql' => $sql,
-            'startTime' => time(),
-            'startTimeMs' => (int) round(microtime(true) * 1000, 1)
+            'startTime' => \time(),
+            'startTimeMs' => (int) \round(\microtime(true) * 1000, 1),
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function stopQuery()
+    public function stopQuery() : void
     {
         $this->telemetryClient->trackDependency(
             $this->dependencyName,
             $this->dependencyType,
             $this->sqlQuery['sql'],
             $this->sqlQuery['startTime'],
-            (int) round(microtime(true) * 1000, 1) - $this->sqlQuery['startTimeMs'],
+            (int) \round(\microtime(true) * 1000, 1) - $this->sqlQuery['startTimeMs'],
             true,
             null
         );
 
-        unset($this->sqlQuery);
+        $this->sqlQuery = null;
     }
 }
