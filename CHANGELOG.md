@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-02-14
+## [0.2.1] - 2021-02-14
 
 ### Added
 - [dfb893](https://github.com/app-insights-php/doctrine-dependency-logger/commit/dfb893b64bd1d173937d73a4ab97f9631fe4b133) - **changelog** - [@norberttech](https://github.com/norberttech)
