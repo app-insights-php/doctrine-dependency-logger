@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-03-11
+## [Unreleased] - 2021-03-22
 
 ### Fixed
 - [2a3486](https://github.com/app-insights-php/doctrine-dependency-logger/commit/2a34864dd58afcf79296c07af7bd1ab50e4d0bfe) - **composer cache directory in github workflow** - [@norberttech](https://github.com/norberttech)
